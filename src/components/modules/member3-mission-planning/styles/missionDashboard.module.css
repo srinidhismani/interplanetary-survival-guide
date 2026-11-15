@@ -1,0 +1,1547 @@
+/* ==========================================================================
+   MISSION PLANNING DASHBOARD CSS (MEMBER 3)
+   Dark Scientific Mission-Control Theme with Mars Red, Orange, Amber & Cyan
+   ========================================================================== */
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   1. TELEMETRY STATUS BAR
+   -------------------------------------------------------------------------- */
+.statusBar {
+  background: #0d1424;
+  border: 1px solid #1e293b;
+  border-left: 4px solid #f97316;
+  border-radius: 8px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.statusIdentityGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.missionPulseIndicator {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+
+.pulseRadarDot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #f97316;
+  animation: pulseMission 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes pulseMission {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.missionIcon {
+  font-size: 1.1rem;
+}
+
+.statusTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f8fafc;
+  text-transform: uppercase;
+}
+
+.statusSub {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.statusReadoutsGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.statusChip {
+  display: flex;
+  flex-direction: column;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 5px;
+  padding: 0.35rem 0.65rem;
+  min-width: 95px;
+}
+
+.chipLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.chipVal {
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  margin-top: 1px;
+}
+
+.liveSystemPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: #fb923c;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.65rem;
+  border-radius: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   2. ACTION CONTROLS TOOLBAR
+   -------------------------------------------------------------------------- */
+.actionToolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background: #0d1424;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.primaryActionGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.summaryBriefingBtn {
+  background: linear-gradient(135deg, #ea580c, #c2410c);
+  border: 1px solid #f97316;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.25);
+}
+
+.summaryBriefingBtn:hover {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+}
+
+.resetMissionBtn {
+  background: #131d33;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.5rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetMissionBtn:hover {
+  background: #1e293b;
+  border-color: #64748b;
+  color: #f8fafc;
+}
+
+.tabShortcutsGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.shortcutLabel {
+  font-size: 0.72rem;
+  color: #64748b;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.shortcutBtn {
+  background: #131d33;
+  border: 1px solid #1e293b;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.shortcutBtn:hover {
+  background: #1e293b;
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* --------------------------------------------------------------------------
+   3. 2-COLUMN DASHBOARD GRID
+   -------------------------------------------------------------------------- */
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 1080px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gridColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. SHARED CARD CONTAINER
+   -------------------------------------------------------------------------- */
+.cardContainer {
+  background: #0d1424;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #1e293b;
+  padding-bottom: 0.75rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cardSectionBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f97316;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0.2rem 0 0 0;
+}
+
+.secondaryActionBtn {
+  background: #131d33;
+  border: 1px solid #334155;
+  color: #38bdf8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondaryActionBtn:hover {
+  background: #1e293b;
+  border-color: #38bdf8;
+}
+
+.primaryActionBtn {
+  background: #0284c7;
+  border: 1px solid #38bdf8;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primaryActionBtn:hover {
+  background: #0369a1;
+}
+
+/* --------------------------------------------------------------------------
+   5. MISSION DETAILS CARD
+   -------------------------------------------------------------------------- */
+.missionTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+.titleDisplayGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.missionMainTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+}
+
+.editIconBtn {
+  background: transparent;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  font-size: 0.72rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.editIconBtn:hover {
+  border-color: #f97316;
+  color: #f97316;
+}
+
+.nameEditGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nameInput {
+  background: #080b13;
+  border: 1px solid #f97316;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  outline: none;
+}
+
+.saveBtn {
+  background: #10b981;
+  border: none;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background: #475569;
+  border: none;
+  color: #ffffff;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.missionSubtext {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 0.25rem 0 0 0;
+}
+
+.objectiveProgressPill {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+.objectiveProgressPill strong {
+  color: #10b981;
+  font-size: 0.8rem;
+  font-family: monospace;
+}
+
+.objectivesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.subHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.subTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hintText {
+  font-size: 0.7rem;
+  color: #64748b;
+}
+
+.objectivesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 240px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.objectiveItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 5px;
+  padding: 0.45rem 0.65rem;
+  transition: border-color 0.15s ease;
+}
+
+.objectiveItem:hover {
+  border-color: #334155;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.customCheckbox {
+  accent-color: #10b981;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.objectiveText {
+  font-size: 0.82rem;
+  color: #e2e8f0;
+}
+
+.objectiveTextDone {
+  font-size: 0.82rem;
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.removeObjBtn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+}
+
+.removeObjBtn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.addObjectiveForm {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.addObjectiveInput {
+  flex: 1;
+  background: #080b13;
+  border: 1px solid #1e293b;
+  color: #f8fafc;
+  font-size: 0.8rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 5px;
+  outline: none;
+}
+
+.addObjectiveInput:focus {
+  border-color: #f97316;
+}
+
+.addObjButton {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #f8fafc;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 0.75rem;
+  border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.addObjButton:hover:not(:disabled) {
+  background: #f97316;
+  border-color: #f97316;
+  color: #ffffff;
+}
+
+.addObjButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   6. SELECTED LOCATIONS CARD
+   -------------------------------------------------------------------------- */
+.endpointPairGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .endpointPairGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.endpointBox {
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.endpointBadgeRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.startBadge {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid #10b981;
+  color: #10b981;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+.destBadge {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+}
+
+.endpointStatusPill {
+  font-size: 0.68rem;
+  color: #64748b;
+}
+
+.endpointName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.endpointMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+.poisSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.linkButton {
+  background: transparent;
+  border: none;
+  color: #38bdf8;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+}
+
+.linkButton:hover {
+  color: #7dd3fc;
+}
+
+.emptyStateBox {
+  background: #131d33;
+  border: 1px dashed #334155;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.emptyHint {
+  font-size: 0.72rem;
+  color: #64748b;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.emptyWarningText {
+  color: #f59e0b;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.emptySubtext {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+.poiCardsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.poiMissionCard {
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.poiMissionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.poiTitleGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.poiIcon {
+  font-size: 1.25rem;
+}
+
+.poiName {
+  font-size: 0.88rem;
+  color: #f8fafc;
+  display: block;
+}
+
+.poiCatTag {
+  font-size: 0.68rem;
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.poiMissionDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.poiMetaLine {
+  display: flex;
+  gap: 0.85rem;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+.poiShortDesc {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.poiCardFooter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.setDestMiniBtn {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fca5a5;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.setDestMiniBtn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.addPoiForm {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.selectPoiDropdown {
+  flex: 1;
+  background: #080b13;
+  border: 1px solid #1e293b;
+  color: #f8fafc;
+  font-size: 0.78rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 5px;
+  outline: none;
+}
+
+.selectPoiDropdown:focus {
+  border-color: #38bdf8;
+}
+
+/* --------------------------------------------------------------------------
+   7. PLANNED ROUTE CARD
+   -------------------------------------------------------------------------- */
+.routeMetricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+}
+
+@media (max-width: 800px) {
+  .routeMetricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.metricCard {
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.65rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.metricLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.metricValueLarge {
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  margin: 0.2rem 0;
+}
+
+.metricUnit {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.metricNote {
+  font-size: 0.68rem;
+  color: #64748b;
+}
+
+.difficultyBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  display: inline-block;
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+.challengesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.challengesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  max-height: 190px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.challengeItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+}
+
+.challengeIconWrap {
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.challengeContent {
+  flex: 1;
+}
+
+.challengeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.challengeName {
+  font-size: 0.82rem;
+  color: #f8fafc;
+}
+
+.challengeActionTag {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.35rem;
+  border-radius: 3px;
+}
+
+.challengeDescription {
+  font-size: 0.74rem;
+  color: #94a3b8;
+  margin: 0.2rem 0 0 0;
+  line-height: 1.35;
+}
+
+.safeTerrainBox {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #10b981;
+  font-size: 0.78rem;
+  padding: 0.65rem;
+  border-radius: 5px;
+}
+
+.safetyDisclaimerBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.75rem;
+  color: #fca5a5;
+}
+
+.safetyDisclaimerBanner strong {
+  display: block;
+  color: #ef4444;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 2px;
+}
+
+.safetyDisclaimerBanner p {
+  margin: 0;
+  line-height: 1.35;
+}
+
+.disclaimerIcon {
+  font-size: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. HAZARDS OVERVIEW CARD
+   -------------------------------------------------------------------------- */
+.hazardStatPillsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .hazardStatPillsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.hazardStatPill {
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 5px;
+  padding: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hazardStatNum {
+  font-size: 1.15rem;
+  font-weight: 800;
+  font-family: monospace;
+}
+
+.hazardStatLabel {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.hazardFilterControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  background: #080b13;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.45rem 0.65rem;
+}
+
+.filterButtonGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.filterBarLabel {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-right: 2px;
+}
+
+.miniFilterBtn {
+  background: #131d33;
+  border: 1px solid #1e293b;
+  color: #94a3b8;
+  font-size: 0.72rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.miniFilterBtn:hover {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+.miniFilterBtnActive {
+  background: #f97316;
+  border-color: #f97316;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.provenanceLegendBox {
+  display: flex;
+  gap: 1rem;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  flex-wrap: wrap;
+}
+
+.provenanceLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+}
+
+.observedBadge {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.estimatedBadge {
+  background: rgba(167, 139, 250, 0.15);
+  border: 1px solid #a78bfa;
+  color: #c4b5fd;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.legendText {
+  color: #94a3b8;
+}
+
+.hazardsListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.hazardEntryCard {
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.hazardEntryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.hazardTitleBlock {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.hazardTypeIcon {
+  font-size: 1.15rem;
+}
+
+.hazardTitleText {
+  font-size: 0.85rem;
+  color: #f8fafc;
+  display: block;
+}
+
+.hazardSubRow {
+  display: flex;
+  gap: 0.65rem;
+  font-size: 0.7rem;
+  margin-top: 1px;
+}
+
+.hazardTypeText {
+  color: #f59e0b;
+  font-weight: 600;
+}
+
+.hazardCoordText {
+  color: #64748b;
+  font-family: monospace;
+}
+
+.hazardBadgesStack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.severityBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  border: 1px solid;
+}
+
+.observedPill {
+  font-size: 0.65rem;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.estimatedPill {
+  font-size: 0.65rem;
+  background: rgba(167, 139, 250, 0.1);
+  color: #c4b5fd;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+.hazardDescText {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.hazardFootnote {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  background: #080b13;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   9. MISSION SUMMARY MODAL
+   -------------------------------------------------------------------------- */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 14, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.modalContent {
+  background: #0d1424;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 820px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  animation: modalFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #1e293b;
+}
+
+.modalHeaderBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #f97316;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+  margin: 0.2rem 0;
+}
+
+.modalSubtitle {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.modalCloseBtn {
+  background: transparent;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  font-size: 1rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modalCloseBtn:hover {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #ffffff;
+}
+
+.modalBody {
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.summaryRibbon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .summaryRibbon {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.ribbonItem {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ribbonLabel {
+  font-size: 0.65rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.ribbonVal {
+  font-size: 1rem;
+  font-family: monospace;
+  margin-top: 2px;
+}
+
+.summarySection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sectionHeaderTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0;
+  border-left: 3px solid #f97316;
+  padding-left: 0.5rem;
+}
+
+.summaryObjectivesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.65rem;
+}
+
+.summaryObjectiveItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.8rem;
+}
+
+.statusCheckDone {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.statusCheckPending {
+  color: #64748b;
+}
+
+.objectiveDoneText {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+.objectivePendingText {
+  color: #f8fafc;
+}
+
+.summaryRouteGrid {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.summaryRouteBox {
+  flex: 1;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.boxTag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #10b981;
+  letter-spacing: 0.05em;
+}
+
+.boxName {
+  font-size: 0.88rem;
+  color: #f8fafc;
+}
+
+.boxMeta {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+.summaryRouteArrow {
+  font-size: 1.25rem;
+  color: #38bdf8;
+}
+
+.summaryRouteMetricsStrip {
+  display: flex;
+  gap: 1.25rem;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  flex-wrap: wrap;
+}
+
+.summaryRouteMetricsStrip strong {
+  color: #f8fafc;
+}
+
+.emptyNotice {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-style: italic;
+  margin: 0;
+}
+
+.summaryPoisList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.summaryPoiPill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 5px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.78rem;
+  color: #f8fafc;
+}
+
+.summaryPoiCat {
+  font-size: 0.7rem;
+  color: #f59e0b;
+}
+
+.summaryPoiCoord {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-family: monospace;
+  margin-left: auto;
+}
+
+.hazardBreakdownRow {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  flex-wrap: wrap;
+}
+
+.hazardsSnippetList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.hazardSnippetItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #131d33;
+  border: 1px solid #1e293b;
+  border-radius: 5px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.76rem;
+}
+
+.hazardSnippetIcon {
+  font-size: 1rem;
+}
+
+.hazardSnippetBody {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f8fafc;
+  flex-wrap: wrap;
+}
+
+.hazardSnippetProv {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  margin-left: auto;
+}
+
+.criticalSafetyBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid #ef4444;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  color: #fca5a5;
+  font-size: 0.76rem;
+}
+
+.criticalSafetyBox strong {
+  display: block;
+  color: #ef4444;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.criticalSafetyBox p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.cautionIcon {
+  font-size: 1.5rem;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #1e293b;
+}
+
+.copyBriefingBtn {
+  background: #10b981;
+  border: 1px solid #34d399;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.5rem 1.15rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copyBriefingBtn:hover {
+  background: #059669;
+}
+
+.closeBriefingBtn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #cbd5e1;
+  font-size: 0.82rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.closeBriefingBtn:hover {
+  background: #334155;
+  color: #f8fafc;
+}

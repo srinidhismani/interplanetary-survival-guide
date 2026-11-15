@@ -7,6 +7,9 @@ import { MARS_LOCATIONS, MAP_LAYERS } from '../components/modules/member1-mars-m
 const MarsMissionContext = createContext(null);
 
 export function MarsMissionProvider({ children }) {
+  // Active top-level module: 'home', 'member1-map', 'member2-nasa', 'member3-planning'
+  const [activeModule, setActiveModule] = useState('home');
+
   // Selected location (defaults to Jezero Crater - primary rover landing site)
   const [selectedLocation, setSelectedLocation] = useState(MARS_LOCATIONS[0]);
   
@@ -80,7 +83,23 @@ export function MarsMissionProvider({ children }) {
     });
   }, []);
 
+  // Seamless navigation helper across modules with optional target lock
+  const navigateToModule = useCallback((moduleId, targetLoc = null) => {
+    if (targetLoc) {
+      setSelectedLocation(targetLoc);
+      setTelemetryTarget(targetLoc);
+      setFlyToTarget({ lat: targetLoc.lat, lng: targetLoc.lng, zoom: 3.5, timestamp: Date.now() });
+    }
+    setActiveModule(moduleId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   const value = {
+    // Navigation & Active Module
+    activeModule,
+    setActiveModule,
+    navigateToModule,
+
     // Locations
     locations: MARS_LOCATIONS,
     customWaypoints,

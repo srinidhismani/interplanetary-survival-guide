@@ -1,0 +1,78 @@
+/* Styles for Common Reusable Terrain Module Components */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.badgeLow {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.badgeModerate {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.badgeHigh {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.badgeCritical {
+  background-color: rgba(220, 38, 38, 0.25);
+  color: #fca5a5;
+  border-color: #ef4444;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.statCard {
+  background: #141b2d;
+  border: 1px solid #1f293d;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.statCard:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.statSubtext {
+  font-size: 0.75rem;
+  color: #64748b;
+}

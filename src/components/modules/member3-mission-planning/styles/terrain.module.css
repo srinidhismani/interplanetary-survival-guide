@@ -1,0 +1,92 @@
+/* ==========================================================================
+   TERRAIN MODULE ROOT CSS
+   All class names are modular and scoped exclusively to Member 3's module.
+   ========================================================================== */
+
+.terrainModuleContainer {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  font-family: inherit;
+}
+
+.moduleHeader {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  border-bottom: 1px solid #334155;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.moduleTitleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.moduleTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.moduleBadge {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.moduleSubtitle {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.tabNavigation {
+  display: flex;
+  background: #0b0f19;
+  border-bottom: 1px solid #1e293b;
+  padding: 0.5rem 1.5rem 0;
+  gap: 0.5rem;
+}
+
+.tabBtn {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.tabBtn:hover {
+  color: #f1f5f9;
+}
+
+.tabBtnActive {
+  color: #38bdf8;
+  border-bottom-color: #38bdf8;
+  font-weight: 600;
+}
+
+.moduleContent {
+  padding: 1.5rem;
+}

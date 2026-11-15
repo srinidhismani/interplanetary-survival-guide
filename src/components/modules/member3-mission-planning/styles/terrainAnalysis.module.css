@@ -1,0 +1,1336 @@
+/* ==========================================================================
+   TERRAIN ANALYSIS DASHBOARD CSS (MEMBER 3)
+   Scientific Mission-Control Theme with Mars Red & Orange Accents
+   ========================================================================== */
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   1. MISSION CONTROL STATUS BAR
+   -------------------------------------------------------------------------- */
+.missionStatusBar {
+  background: #0d1424;
+  border: 1px solid #1e293b;
+  border-left: 4px solid #f97316;
+  border-radius: 8px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.statusIdentityGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.orbitIndicator {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orbitDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f97316;
+  box-shadow: 0 0 10px #f97316;
+}
+
+.orbitPulseRing {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid #f97316;
+  animation: pulseRing 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.missionName {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f8fafc;
+  text-transform: uppercase;
+}
+
+.missionSub {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.statusReadoutsGroup {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.statusChip {
+  display: flex;
+  flex-direction: column;
+  background: #080b13;
+  border: 1px solid #1e293b;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+}
+
+.chipLabel {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chipVal {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.simulatedLivePill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   2. MAP CONTROLS & LAYER BAR
+   -------------------------------------------------------------------------- */
+.controlsBar {
+  background: #0b101d;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.modeGroup, .focusGroup, .layerTogglesGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.controlsGroupLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.modeButtonsWrap, .focusButtonsWrap, .toggleButtonsWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.modeBtn {
+  background: #141b2d;
+  color: #cbd5e1;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modeBtn:hover {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+.modeBtnActive {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #38bdf8;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
+}
+
+.focusBtn {
+  background: #141b2d;
+  color: #cbd5e1;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.focusBtn:hover {
+  background: #1e293b;
+  border-color: #f97316;
+  color: #ffffff;
+}
+
+.focusBtnActive {
+  background: #c2410c;
+  color: #ffffff;
+  border-color: #ea580c;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(234, 88, 12, 0.4);
+}
+
+.layerToggleBtn {
+  background: #141b2d;
+  color: #64748b;
+  border: 1px solid #1e293b;
+  border-radius: 4px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.layerToggleBtn:hover {
+  color: #cbd5e1;
+  border-color: #475569;
+}
+
+.layerActive {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   3. WORKSPACE 2-COLUMN RESPONSIVE LAYOUT
+   -------------------------------------------------------------------------- */
+.workspaceGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(360px, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 1080px) {
+  .workspaceGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mapWorkspaceCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.infoPanelCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   4. LARGE INTERACTIVE MARS TERRAIN MAP
+   -------------------------------------------------------------------------- */
+.mapContainer {
+  background: #080b13;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.mapHudBar {
+  background: #0d1424;
+  border-bottom: 1px solid #1e293b;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hudStatusBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pulseRadarDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+  animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.hudStatusText {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #38bdf8;
+}
+
+.telemetryReadout {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  flex-wrap: wrap;
+}
+
+.telemetryDivider {
+  color: #334155;
+}
+
+.simulatedPill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+.svgViewport {
+  position: relative;
+  width: 100%;
+  background: #06080e;
+  overflow: hidden;
+}
+
+.marsMapSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+.radarPing {
+  animation: radarPingAnim 2.2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes radarPingAnim {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.hazardPulse {
+  animation: hazardPulseAnim 1.8s ease-in-out infinite;
+}
+
+@keyframes hazardPulseAnim {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.35); opacity: 0.25; }
+}
+
+.mapFooterBar {
+  background: #0d1424;
+  border-top: 1px solid #1e293b;
+  padding: 0.6rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.scaleBarGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.scaleBarLine {
+  width: 120px;
+  height: 4px;
+  background: #38bdf8;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scaleBarTick {
+  width: 2px;
+  height: 8px;
+  background: #38bdf8;
+  margin-top: -2px;
+}
+
+.scaleBarLabel {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+.elevationLegend {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.legendLabel {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.legendGradient {
+  width: 110px;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #1e1b4b 0%, #111827 25%, #7c2d12 50%, #ea580c 75%, #ffffff 100%);
+  border: 1px solid #334155;
+}
+
+.legendValues {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.65rem;
+  color: #cbd5e1;
+  font-family: monospace;
+}
+
+.slopeLegendColors {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   5. RIGHT-SIDE TERRAIN INFORMATION PANEL
+   -------------------------------------------------------------------------- */
+.rightInfoPanel {
+  background: #0b101e;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.infoPanelEmpty {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.85rem;
+  background: #0b101e;
+  border: 1px dashed #334155;
+  border-radius: 10px;
+}
+
+.panelHeader {
+  background: linear-gradient(180deg, #131b2e 0%, #0b101e 100%);
+  border-bottom: 1px solid #1e293b;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.panelTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.panelQuadrant {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #f97316;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.panelSectorTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.3;
+}
+
+.simulatedBadge {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.panelMetaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.metaCoordinate {
+  color: #38bdf8;
+  font-family: monospace;
+}
+
+.traversabilityPill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #141b2d;
+  border: 1px solid #1e293b;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  color: #cbd5e1;
+}
+
+.traversabilityPill strong {
+  color: #34d399;
+}
+
+.panelDescription {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  line-height: 1.4;
+  border-top: 1px solid #1a2333;
+  padding-top: 0.5rem;
+}
+
+.quickMetricsBar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #080c16;
+  border-bottom: 1px solid #1e293b;
+  padding: 0.5rem 0.75rem;
+  gap: 0.5rem;
+}
+
+.quickMetricItem {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.quickMetricLabel {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.quickMetricVal {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.panelTabFilter {
+  display: flex;
+  background: #090d19;
+  border-bottom: 1px solid #1e293b;
+  padding: 0.35rem 0.75rem;
+  gap: 0.35rem;
+  overflow-x: auto;
+}
+
+.panelFilterBtn {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  border-radius: 4px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.panelFilterBtn:hover {
+  color: #ffffff;
+  background: #141b2d;
+}
+
+.panelFilterBtnActive {
+  background: #1e293b;
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.panelScrollBody {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 680px;
+  overflow-y: auto;
+}
+
+.panelSectionCard {
+  background: #0d1424;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1a2333;
+  padding-bottom: 0.5rem;
+}
+
+.sectionSubhead {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f97316;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.simulatedTag {
+  font-size: 0.65rem;
+  color: #64748b;
+  font-family: monospace;
+}
+
+/* --------------------------------------------------------------------------
+   6. ELEVATION ANALYSIS PANEL & CROSS-SECTION
+   -------------------------------------------------------------------------- */
+.elevationAnalysisPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.elevationStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.elevStatCard {
+  background: #080c16;
+  border: 1px solid #141b2d;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.elevStatLabel {
+  font-size: 0.68rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.elevStatVal {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.elevStatBand {
+  font-size: 0.68rem;
+  color: #94a3b8;
+}
+
+.elevChartCard {
+  background: #080c16;
+  border: 1px solid #141b2d;
+  border-radius: 6px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chartTitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.chartHoverHint {
+  font-size: 0.65rem;
+  color: #38bdf8;
+  font-style: italic;
+}
+
+.chartSvg {
+  width: 100%;
+  height: auto;
+  background: #080c16;
+  border-radius: 4px;
+}
+
+.chartAxisLabel {
+  font-size: 8px;
+  fill: #64748b;
+  font-family: monospace;
+}
+
+.activePointBox {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activePointBoxPlaceholder {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-align: center;
+  padding: 0.35rem;
+}
+
+.hypsometricLegendCard {
+  background: #080c16;
+  border: 1px solid #141b2d;
+  border-radius: 6px;
+  padding: 0.65rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.legendTitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.hypsometricGradientBar {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #1e1b4b 0%, #38bdf8 25%, #10b981 50%, #ea580c 75%, #fca5a5 100%);
+}
+
+.hypsometricBandsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  color: #cbd5e1;
+}
+
+.bandItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.bandDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. SLOPE ANALYSIS PANEL & GAUGE
+   -------------------------------------------------------------------------- */
+.slopeAnalysisPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.slopeDualGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.slopeMetricBox {
+  background: #080c16;
+  border: 1px solid #141b2d;
+  border-radius: 6px;
+  padding: 0.65rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.slopeMetricHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.slopeCategoryBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  border: 1px solid;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.slopeNumberRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.slopePrimaryVal {
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.slopeSecondaryVal {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.slopeTractionNote {
+  font-size: 0.7rem;
+  color: #cbd5e1;
+  line-height: 1.3;
+}
+
+.slopeCategoryFilterBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.slopeCategoryFilterTitle {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.slopeCategoryBtnGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+
+.slopeCatBtn {
+  background: #080c16;
+  border: 1px solid #1e293b;
+  border-radius: 5px;
+  padding: 0.45rem 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.68rem;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slopeCatBtn:hover {
+  background: #111827;
+  border-color: #475569;
+}
+
+.slopeCatBtnActive {
+  border-color: #38bdf8;
+  background: #1e293b;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+.slopeCatDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.roverProtocolBox {
+  background: #080c16;
+  border-left: 3px solid #38bdf8;
+  border-radius: 4px;
+  padding: 0.6rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.protocolTitle {
+  font-size: 0.72rem;
+  color: #38bdf8;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.protocolText {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+.slopeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.slopeVisualContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gaugeDialBox {
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.gaugeSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gaugeMarkText {
+  font-size: 8px;
+  fill: #64748b;
+  font-family: monospace;
+}
+
+.slopeReadoutBox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.angleBigDisplay {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.angleLabel {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.slopeStatusBadge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  border: 1px solid;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.slopeMaxNote {
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+.gradeDistContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.gradeDistLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: #94a3b8;
+}
+
+.gradeDistBar {
+  height: 6px;
+  background: #141b2d;
+  border-radius: 3px;
+  display: flex;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   8. SURFACE ROUGHNESS & ROCKY TERRAIN
+   -------------------------------------------------------------------------- */
+.roughnessSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.roughnessGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+.roughnessMetric {
+  background: #080c16;
+  border: 1px solid #141b2d;
+  border-radius: 6px;
+  padding: 0.5rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.metricLabel {
+  font-size: 0.68rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.metricValue {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.metricValueHighlight {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.metricSub {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.abundanceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.abundanceHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+.abundanceTrack {
+  height: 6px;
+  background: #141b2d;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.abundanceFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.compositionBox {
+  background: #080c16;
+  border-radius: 4px;
+  padding: 0.5rem 0.65rem;
+  border-left: 3px solid #ea580c;
+}
+
+.compositionLabel {
+  font-size: 0.68rem;
+  color: #ea580c;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.compositionText {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  line-height: 1.35;
+  margin-top: 0.15rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. LOCATION INSPECTOR TOOL
+   -------------------------------------------------------------------------- */
+.inspectorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.inspectorPresetWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.inspectorLabel {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.inspectorSelect {
+  background: #080c16;
+  color: #f8fafc;
+  border: 1px solid #334155;
+  border-radius: 5px;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.inspectorSelect:focus {
+  border-color: #38bdf8;
+}
+
+.inspectorTelemetryCard {
+  background: #080c16;
+  border: 1px solid #141b2d;
+  border-radius: 6px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.inspectorTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.targetName {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.targetCoord {
+  font-size: 0.72rem;
+  color: #38bdf8;
+  font-family: monospace;
+}
+
+.inspectorGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.inspectorCell {
+  background: #0d1424;
+  border: 1px solid #1e293b;
+  border-radius: 4px;
+  padding: 0.45rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cellLabel {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.cellVal {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.cellSub {
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+.targetGeoBox {
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  background: #0d1424;
+  padding: 0.5rem 0.65rem;
+  border-radius: 4px;
+  border-left: 2px solid #f97316;
+}
+
+.targetGuidanceBox {
+  font-size: 0.72rem;
+  color: #93c5fd;
+  background: #0d1424;
+  padding: 0.5rem 0.65rem;
+  border-radius: 4px;
+  border-left: 2px solid #38bdf8;
+}
+
+/* --------------------------------------------------------------------------
+   10. HAZARDS LIST IN PANEL
+   -------------------------------------------------------------------------- */
+.hazardMiniList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.hazardMiniCard {
+  background: #080c16;
+  border: 1px solid #1e293b;
+  border-left: 3px solid #ef4444;
+  border-radius: 6px;
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hazardMiniCard:hover {
+  background: #111827;
+  border-color: #ef4444;
+}
+
+.hazardMiniCardActive {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+}
+
+.hazardMiniHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hazardMiniTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.hazardMiniMeta {
+  display: flex;
+  gap: 0.85rem;
+  font-size: 0.7rem;
+  color: #94a3b8;
+}
+
+.hazardImpactText {
+  font-size: 0.72rem;
+  color: #fca5a5;
+  line-height: 1.3;
+}
+
+.hazardProtocolText {
+  font-size: 0.72rem;
+  color: #93c5fd;
+  line-height: 1.3;
+  background: #0f172a;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+}
+
+.noHazardsCard {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  font-size: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   11. MISSION SAFETY ADVISORY (NO ASTRONAUT-SAFE CLAIMS)
+   -------------------------------------------------------------------------- */
+.missionAdvisoryBox {
+  background: #130e10;
+  border: 1px solid #7f1d1d;
+  border-left: 4px solid #ef4444;
+  border-radius: 6px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.advisoryHeader {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #f87171;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.advisoryText {
+  font-size: 0.72rem;
+  color: #e2e8f0;
+  line-height: 1.45;
+}
+
+.advisoryText strong {
+  color: #fca5a5;
+}

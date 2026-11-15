@@ -1,0 +1,574 @@
+/* ==========================================================================
+   SCIENTIFIC POINTS OF INTEREST MODULE CSS (MEMBER 3)
+   Dark Scientific Mission-Control Theme with Mars Cyan, Amber & Rust Accents
+   ========================================================================== */
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   1. TOP STATUS BAR
+   -------------------------------------------------------------------------- */
+.statusBar {
+  background: #0d1424;
+  border: 1px solid #1e293b;
+  border-left: 4px solid #38bdf8;
+  border-radius: 8px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.statusIdentityGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.scienceIconPulse {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+
+.pulseRadarDot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #38bdf8;
+  animation: pulseScience 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+@keyframes pulseScience {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.statusTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f8fafc;
+  text-transform: uppercase;
+}
+
+.statusSub {
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.statusReadoutsGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.statusChip {
+  display: flex;
+  flex-direction: column;
+  background: #080b13;
+  border: 1px solid #1e293b;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+}
+
+.chipLabel {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chipVal {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.verifiedLivePill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.35rem 0.65rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   2. GEOLOGICAL CATEGORY FILTER BAR
+   -------------------------------------------------------------------------- */
+.filterBarContainer {
+  background: #0b101e;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filterTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.filterCountBadge {
+  font-size: 0.68rem;
+  background: #141b2d;
+  color: #38bdf8;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.sourceNotice {
+  font-size: 0.68rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.categoriesPillGroup {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.categoryPill {
+  background: #080c16;
+  color: #cbd5e1;
+  border: 1px solid #1e293b;
+  border-radius: 9999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryPill:hover {
+  background: #141b2d;
+  color: #ffffff;
+  border-color: #38bdf8;
+}
+
+.categoryPillActive {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border-color: #38bdf8;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   3. 2-COLUMN WORKSPACE LAYOUT
+   -------------------------------------------------------------------------- */
+.workspaceGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(360px, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 1080px) {
+  .workspaceGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mapWorkspaceCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.infoPanelCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.mapWrapperBox {
+  background: #080b13;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.mapNoticeBar {
+  background: #0d1424;
+  border-bottom: 1px solid #1e293b;
+  padding: 0.55rem 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.mapNoticeSub {
+  font-size: 0.68rem;
+  color: #94a3b8;
+  font-weight: normal;
+}
+
+/* --------------------------------------------------------------------------
+   4. SCIENTIFIC POI DETAIL CARD
+   -------------------------------------------------------------------------- */
+.detailContainer {
+  background: #0b101e;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  max-height: 740px;
+  overflow-y: auto;
+}
+
+.emptyCard {
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.85rem;
+  background: #0b101e;
+  border: 1px dashed #334155;
+  border-radius: 10px;
+}
+
+.detailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-bottom: 1px solid #1a2333;
+  padding-bottom: 0.75rem;
+}
+
+.categoryBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.categoryBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #f97316;
+  background: rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.epochBadge {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  background: #080c16;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+.poiTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #f8fafc;
+  line-height: 1.25;
+}
+
+.missionDestButton {
+  background: linear-gradient(180deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff;
+  border: 1px solid #38bdf8;
+  border-radius: 6px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.missionDestButton:hover {
+  background: #0284c7;
+  transform: translateY(-1px);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+
+.metricCell {
+  background: #080c16;
+  border: 1px solid #141b2d;
+  border-radius: 6px;
+  padding: 0.55rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.metricLabel {
+  font-size: 0.65rem;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.metricVal {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.metricValCoord {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #38bdf8;
+  font-family: monospace;
+}
+
+.metricSub {
+  font-size: 0.65rem;
+  color: #94a3b8;
+}
+
+.sectionBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sectionHeading {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #f97316;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.descriptionText {
+  font-size: 0.78rem;
+  color: #e2e8f0;
+  line-height: 1.45;
+}
+
+.characteristicsText {
+  font-size: 0.76rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  background: #080c16;
+  border-left: 3px solid #38bdf8;
+  padding: 0.65rem 0.85rem;
+  border-radius: 4px;
+}
+
+/* Verified Scientific Facts Section */
+.verifiedFactsBox {
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-left: 4px solid #10b981;
+  border-radius: 6px;
+  padding: 0.75rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.verifiedHeader {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #34d399;
+  letter-spacing: 0.05em;
+}
+
+.factsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.factItem {
+  font-size: 0.72rem;
+  color: #cbd5e1;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.factItem::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+}
+
+/* Sample Reconnaissance Data Section */
+.sampleDataBox {
+  background: rgba(192, 132, 252, 0.06);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  border-left: 4px solid #c084fc;
+  border-radius: 6px;
+  padding: 0.75rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.sampleHeader {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #d8b4fe;
+  letter-spacing: 0.05em;
+}
+
+.sampleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  color: #cbd5e1;
+}
+
+.sampleGrid strong {
+  color: #f8fafc;
+}
+
+/* --------------------------------------------------------------------------
+   5. COMPACT SCIENTIFIC POI LIST
+   -------------------------------------------------------------------------- */
+.listSectionBox {
+  background: #0b101e;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.listSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listSectionTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.listClickHint {
+  font-size: 0.68rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+.compactPoisGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.65rem;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.compactPoiCard {
+  background: #080c16;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 0.55rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.compactPoiCard:hover {
+  background: #111827;
+  border-color: #38bdf8;
+}
+
+.compactPoiCardActive {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+.compactTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compactTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.compactElevBadge {
+  font-size: 0.65rem;
+  color: #38bdf8;
+  font-family: monospace;
+}
+
+.compactMetaRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: #94a3b8;
+}
+
+.compactCat {
+  color: #f97316;
+}
+
+.compactCoord {
+  font-family: monospace;
+}

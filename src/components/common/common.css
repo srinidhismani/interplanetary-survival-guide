@@ -89,21 +89,6 @@
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
 }
 
-.member-tag {
-  font-size: 0.65rem;
-  font-weight: 700;
-  padding: 0.15rem 0.45rem;
-  border-radius: 4px;
-  background: rgba(148, 163, 184, 0.15);
-  color: #94a3b8;
-  margin-left: 0.5rem;
-}
-
-.member-tag.active-tag {
-  background: rgba(56, 189, 248, 0.25);
-  color: #38bdf8;
-}
-
 .navbar-status-indicator {
   display: flex;
   align-items: center;

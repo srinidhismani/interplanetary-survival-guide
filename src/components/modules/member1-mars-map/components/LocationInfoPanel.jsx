@@ -27,7 +27,8 @@ export default function LocationInfoPanel({ onClose }) {
     flyTo,
     setTelemetryTarget,
     addToMissionRoute,
-    routeWaypoints
+    routeWaypoints,
+    navigateToModule
   } = useMarsMission();
 
   const [copied, setCopied] = useState(false);
@@ -68,7 +69,13 @@ export default function LocationInfoPanel({ onClose }) {
   const handleSendToTelemetry = () => {
     setTelemetryTarget(loc);
     setSentTelemetry(true);
-    setTimeout(() => setSentTelemetry(false), 2500);
+    if (navigateToModule) {
+      setTimeout(() => {
+        navigateToModule('member2-nasa');
+      }, 500);
+    } else {
+      setTimeout(() => setSentTelemetry(false), 2500);
+    }
   };
 
   const handleAddToRoute = () => {
@@ -262,27 +269,40 @@ export default function LocationInfoPanel({ onClose }) {
           {copied ? 'Copied' : 'Copy'}
         </button>
 
-        {/* Member 2 Integration Hook: Send to NASA Telemetry */}
+        {/* Science Telemetry Action */}
         <button
           type="button"
           className="action-btn telemetry-btn"
           onClick={handleSendToTelemetry}
-          title="Send this site to Member 2's NASA Telemetry Module"
+          title="Inspect telemetry in Planetary Science module"
         >
           <Radio className="w-4 h-4 mr-1.5 text-cyan-400" />
-          {sentTelemetry ? 'Transmitted' : 'Telemetry Feed'}
+          {sentTelemetry ? 'Transmitted' : 'Science Feed'}
         </button>
 
-        {/* Member 3 Integration Hook: Add to Mission Route */}
+        {/* Mission Traverse Route Action */}
         <button
           type="button"
           className={`action-btn route-btn ${isAlreadyInRoute ? 'already-added' : ''}`}
           onClick={handleAddToRoute}
-          title="Add location to Member 3's Survival Route Planner"
+          title="Add location to Mission Traverse Route"
         >
           <Send className="w-4 h-4 mr-1.5 text-emerald-400" />
           {addedRoute ? 'Added to Route' : isAlreadyInRoute ? 'In Route' : 'Add to Plan'}
         </button>
+
+        {/* Direct link to Route Planner if in route */}
+        {isAlreadyInRoute && navigateToModule && (
+          <button
+            type="button"
+            className="action-btn secondary-btn"
+            style={{ borderColor: 'rgba(16, 185, 129, 0.4)', color: '#34d399' }}
+            onClick={() => navigateToModule('member3-planning')}
+            title="Open Route & Mission Planner"
+          >
+            Open Planner →
+          </button>
+        )}
       </div>
     </div>
   );
